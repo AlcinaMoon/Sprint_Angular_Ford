@@ -1,0 +1,46 @@
+:host {
+  --ford-primary-blue: #002244;
+  --ford-secondary-blue: #0056b3;
+  --text-color-dark: #333;
+  --text-color-light: #f8f9fa;
+  --border-color: #dee2e6;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  --card-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.dialog-header {
+  background-color: var(--ford-primary-blue);
+  padding: 16px 24px;
+  color: var(--text-color-light);
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+  text-align: center;
+  box-shadow: var(--card-shadow-hover);
+}
+
+h1[mat-dialog-title] {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0, 86, 179, 0.8);
+  color: var(--text-color-light);
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.welcome-message {
+  color: var(--text-color-dark);
+  font-size: 1.3rem;
+  font-weight: 600;
+  background-color: transparent;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 20px;
+}

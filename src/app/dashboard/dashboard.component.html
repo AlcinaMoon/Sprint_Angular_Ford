@@ -1,0 +1,82 @@
+<app-menu></app-menu>
+
+<main class="dashboard-page">
+  <h2 class="page-title">Dashboard Ford</h2>
+
+  <div class="content-wrapper">
+    <div class="left-section">
+      <div class="card">
+        <div class="card-header">Veículo</div>
+        <div class="card-body">
+          <form [formGroup]="selectCarForm">
+            <select class="form-select" formControlName="carId">
+              <option value="" disabled selected>Selecione...</option>
+              @for (vehicle of vehicles; track vehicle.id) {
+              <option [value]="vehicle.id">{{ vehicle.vehicle }}</option>
+              }
+            </select>
+          </form>
+        </div>
+      </div>
+
+      @if (selectedVehicle) {
+        <img [src]="selectedVehicle.img" [alt]="selectedVehicle.vehicle" class="vehicle-image"/>
+      }
+    </div>
+    
+    @if (selectedVehicle) {
+      <div class="right-section">
+        <div class="card animated-card">
+          <div class="card-header">Total de Vendas</div>
+          <div class="card-body">
+            <h5 class="card-title">{{ selectedVehicle.volumetotal | number }}</h5>
+            <p class="card-text">Unid.</p>
+          </div>
+        </div>
+        <div class="card animated-card">
+          <div class="card-header">Veículos Conectados</div>
+          <div class="card-body">
+            <h5 class="card-title">{{ selectedVehicle.connected | number }}</h5>
+            <p class="card-text">Unid.</p>
+          </div>
+        </div>
+        <div class="card animated-card">
+          <div class="card-header">Software Atualizado</div>
+          <div class="card-body">
+            <h5 class="card-title">{{ selectedVehicle.softwareUpdates | number }}</h5>
+            <p class="card-text">Unid.</p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</main>
+
+<footer class="vin-table-footer">
+  <table>
+    <thead>
+      <tr>
+        <th>Código - VIN</th>
+        <th>Odômetro</th>
+        <th>Nível de Combustível</th>
+        <th>Status</th>
+        <th>Lat</th>
+        <th>Long</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="vin-input-cell">
+          <form [formGroup]="vinForm">
+            <input class="form-control" type="text" formControlName="vin" placeholder="Digite o código VIN..."/>
+          </form>
+        </td>
+        <td>{{ (carVin?.odometro | number) || '-' }} km</td>
+        <td>{{ carVin?.nivelCombustivel || '-' }} %</td>
+        <td>{{ carVin?.status || '-' }}</td>
+        <td>{{ carVin?.lat || '-' }}</td>
+        <td>{{ carVin?.long || '-' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</footer>

@@ -1,0 +1,29 @@
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.welcome-dialog-panel .mat-mdc-dialog-container .mdc-dialog__surface {
+  background-color: rgba(255, 255, 255, 0.85) !important; 
+  backdrop-filter: blur(4px); 
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+
+
+.error-snackbar {
+  background-color: #f44336; 
+  color: white;
+}
+
+.error-snackbar .mat-mdc-button.mat-mdc-button-base {
+  color: white !important; 
+}
+
+:root {
+  --sidebar-bg: #307bc7e3;       
+  --sidebar-link-color: #333;   
+  --sidebar-active-color: #1a73e8; 
+  --sidebar-hover-bg: #e9ecef;  
+}
