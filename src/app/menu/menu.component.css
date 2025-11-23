@@ -1,4 +1,3 @@
-
 :root {
   --ford-primary-blue: #002244;
   --ford-secondary-blue: #0056b3;
@@ -7,9 +6,9 @@
   --active-bg-color: rgba(0, 86, 179, 0.15);
 }
 
-.navbar {
-  top: 0;
+.navb {
   width: 100%;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,56 +19,48 @@
   border-right: 1px solid var(--border-color);
 }
 
-.offcanvas-header {
+.off-hd {
   padding: 1.5rem;
   border-bottom: 1px solid var(--border-color);
 }
 
-.offcanvas-header .sidebar-logo {
+.sb-logo {
   height: 40px;
   width: auto;
 }
 
-.nav-item {
+.nav-it {
   margin-bottom: 0.5rem;
 }
 
-
 .nav-link {
-  color: var(--ford-primary-blue); 
+  color: var(--ford-primary-blue);
   font-weight: 500;
   font-size: 1rem;
-  padding: 0.75rem 1.5rem;
+  padding: .75rem 1.5rem;
   border-left: 4px solid transparent;
-  transition: all 0.2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
-
 
 .nav-link:hover {
-  background-color: var(--hover-bg-color); 
-  color: var(--ford-secondary-blue);       
+  background-color: var(--hover-bg-color);
+  color: var(--ford-secondary-blue);
   border-left-color: var(--ford-secondary-blue);
 }
-
 
 .nav-link.active {
-  color: var(--ford-secondary-blue); 
-  font-weight: 700;
+  background-color: var(--active-bg-color);
+  color: var(--ford-secondary-blue);
   border-left-color: var(--ford-secondary-blue);
-  background-color: var(--active-bg-color); 
+  font-weight: 700;
 }
 
-.btn-close:focus {
+.btn-close:focus,
+.nav-tog:focus {
   box-shadow: none;
 }
 
-.navbar-toggler:focus {
-  box-shadow: none;
-}
-
-
-.navbar-toggler .hamburger-icon {
-  position: relative;
+.nav-tog .ham-ic {
   width: 28px;
   height: 22px;
   display: flex;
@@ -77,31 +68,23 @@
   justify-content: space-between;
 }
 
-
-.navbar-toggler .hamburger-icon span {
+.ham-ic span {
+  height: 3px;
   width: 100%;
-  height: 3px; 
-  background-color: #002244; 
+  background-color: #002244;
   border-radius: 2px;
-  display: block;
-  transition: all 0.3s ease-in-out;
-  transform-origin: center;
+  transition: all .3s ease-in-out;
 }
 
-
-
-.navbar-toggler:not(.collapsed) .hamburger-icon span:nth-child(1) {
-
+.nav-tog:not(.collapsed) .ham-ic span:nth-child(1) {
   transform: translateY(9.5px) rotate(45deg);
 }
 
-.navbar-toggler:not(.collapsed) .hamburger-icon span:nth-child(2) {
-
+.nav-tog:not(.collapsed) .ham-ic span:nth-child(2) {
   opacity: 0;
   transform: translateX(-100%);
 }
 
-.navbar-toggler:not(.collapsed) .hamburger-icon span:nth-child(3) {
-
+.nav-tog:not(.collapsed) .ham-ic span:nth-child(3) {
   transform: translateY(-9.5px) rotate(-45deg);
 }

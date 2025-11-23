@@ -9,138 +9,63 @@
   --neon-glow: 0 0 20px rgba(0, 86, 179, 0.6);
 }
 
-.cyb-wrap {
+.cl-wrap {
   display: flex;
-  width: 100%;
   height: 100vh;
-  overflow: hidden;
-  position: relative;
+  width: 100%;
   background: linear-gradient(135deg, var(--ford-primary-blue), #001122);
+  position: relative;
+  overflow: hidden;
 }
 
-.cyb-wrap::before {
-  content: '';
-  inset: 0;
-  position: absolute;
-  pointer-events: none;
-  animation: scanlines 8s linear infinite;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0, 86, 179, 0.03) 2px,
-      rgba(0, 86, 179, 0.03) 4px
-    );
-}
-
-@keyframes scanlines {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(20px); }
-}
-
-.vh-show {
+.v-show {
   flex: 1;
   display: flex;
-  padding: 3rem;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   background: #fff;
+  padding: 3rem;
   position: relative;
 }
 
-.vh-show::after {
-  content: '';
-  width: 600px;
-  height: 600px;
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  animation: pulse 3s ease-in-out infinite;
-  background: radial-gradient(circle, rgba(0, 86, 179, 0.05), transparent 70%);
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: .3; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: .5; transform: translate(-50%, -50%) scale(1.1); }
-}
-
-.vh-disp {
+.v-disp {
   max-width: 90%;
+  height: auto;
   z-index: 1;
 }
 
-.auth-pnl {
+.a-panel {
   flex: 1;
-  padding: 2rem;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border-left: 1px solid rgba(0, 86, 179, .3);
-  background: rgba(0, 34, 68, 0.95);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
+  background: rgba(0, 34, 68, 0.95);
+  backdrop-filter: blur(10px);
+  position: relative;
 }
 
-.auth-pnl::before {
-  content: '';
-  position: absolute;
-  width: 2px;
-  inset: 0 auto 0 0;
-  animation: borderGlow 2s infinite;
-  background: linear-gradient(to bottom, transparent, var(--ford-secondary-blue), transparent);
-}
-
-@keyframes borderGlow {
-  0%, 100% { opacity: .3; }
-  50% { opacity: 1; }
-}
-
-.auth-box {
+.a-cont {
   width: 100%;
   max-width: 450px;
-  display: flex;
-  flex-direction: column;
   text-align: center;
 }
 
-.brand-box img {
+.b-id img {
   width: 140px;
   margin-bottom: 8rem;
-  animation: logoGlow 3s infinite;
-  filter: drop-shadow(0 0 15px rgba(0, 86, 179, 0.6));
 }
 
-@keyframes logoGlow {
-  0%, 100% { filter: drop-shadow(0 0 15px rgba(0, 86, 179, 0.6)); }
-  50% { filter: drop-shadow(0 0 25px rgba(0, 86, 179, 0.9)); }
+.cred-form {
+  text-align: left;
 }
-
-.cred-box { text-align: left; }
 
 .acc-title {
   text-align: center;
-  color: #fff;
   margin-bottom: 40px;
+  color: #fff;
   font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 3px;
-  padding-bottom: 15px;
-  position: relative;
-  text-transform: uppercase;
-  text-shadow: 0 2px 10px rgba(0,0,0,.5);
-}
-
-.acc-title::after {
-  content: '';
-  width: 60px;
-  height: 3px;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  position: absolute;
-  background: linear-gradient(90deg, transparent, var(--ford-secondary-blue), transparent);
-  box-shadow: var(--neon-glow);
 }
 
 .sec-form {
@@ -148,54 +73,35 @@
   flex-direction: column;
 }
 
-.fld-wrap {
+.inp-cont {
   width: 100%;
   margin-bottom: 25px;
 }
 
-/* deep overrides mantidas */
-.fld-wrap::ng-deep .mat-mdc-text-field-wrapper {
-  background-color: rgba(255, 255, 255, .08);
-  border-radius: 8px;
-  transition: .3s;
-  border: 1px solid rgba(0,86,179,.4);
+.d-hint {
+  font-size: 0.9rem !important;
 }
 
-.hint-icn {
-  color: rgba(102,163,255,.8) !important;
-  font-size: .9rem !important;
-}
-
-.auth-opt {
+.a-opt {
   display: flex;
   align-items: center;
   margin-bottom: 35px;
   color: #fff;
-  font-weight: 500;
 }
 
 .acc-btn {
   width: 100%;
   padding: 18px 0;
-  letter-spacing: 2px;
-  color: #fff;
-  border-radius: 8px;
   font-size: 1.2rem;
   font-weight: 700;
-  border: 2px solid var(--ford-secondary-blue);
   background: linear-gradient(135deg, var(--ford-secondary-blue), var(--ford-primary-blue));
-  transition: .3s;
-  box-shadow: 0 4px 15px rgba(0, 86, 179, .4);
+  color: #fff;
+  border-radius: 8px;
 }
 
-.legal-msg {
+.l-notice {
   margin-top: 60px;
-  color: rgba(255,255,255,.6);
-  letter-spacing: 1px;
-  font-size: .8rem;
-}
-
-@media (max-width: 768px) {
-  .cyb-wrap { flex-direction: column; }
-  .vh-show { display: none; }
+  color: rgba(255,255,255,0.6);
+  font-size: 0.8rem;
+  text-align: center;
 }

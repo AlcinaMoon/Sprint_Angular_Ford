@@ -10,17 +10,18 @@ import { RouterLink } from '@angular/router';
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
+
   menuOnClick(): void {
-    const menuBar = document.getElementById("menu-bar");
-    const nav = document.getElementById("nav");
-    const menuBg = document.getElementById("menu-bg");
-  
-    if (menuBar && nav && menuBg) {
-      menuBar.classList.toggle("change");
-      nav.classList.toggle("change");
-      menuBg.classList.toggle("change-bg");
+    const bar = document.getElementById('menu-bar');
+    const nav = document.getElementById('nav');
+    const bg = document.getElementById('menu-bg');
+
+    if (bar && nav && bg) {
+      bar.classList.toggle('change');
+      nav.classList.toggle('change');
+      bg.classList.toggle('change-bg');
     } else {
-      console.warn("Um ou mais elementos não foram encontrados no DOM.");
+      console.warn('Algum elemento não foi encontrado.');
     }
   }
 }
