@@ -1,43 +1,67 @@
-<div class="cyber-login-wrapper">
-  <div class="vehicle-showcase">
-    <img src="ranger.png" alt="Ford Ranger" class="vehicle-display" />
+<div class="cyb-wrap">
+  <div class="vh-show">
+    <img src="ranger.png" alt="Ford Ranger" class="vh-disp" />
   </div>
-  <div class="auth-panel">
-    <div class="auth-container">
-      <div class="brand-identity">
-        <img src="ford.png" alt="Ford Logo" class="brand-logo-image" />
-      </div>
-      <div class="credentials-form">
-        <form action="#" class="security-form" (ngSubmit)="login()">
-          <h2 class="access-title">Acesso Seguro</h2>
 
-          <mat-form-field appearance="outline" class="input-field-container">
+  <div class="auth-pnl">
+    <div class="auth-box">
+
+      <div class="brand-box">
+        <img src="ford.png" alt="Ford Logo" class="brand-logo" />
+      </div>
+
+      <div class="cred-box">
+        <form class="sec-form" (ngSubmit)="login()">
+
+          <h2 class="acc-title">Acesso Seguro</h2>
+
+          <mat-form-field appearance="outline" class="fld-wrap">
             <mat-icon matPrefix>person</mat-icon>
-            <input type="text" [(ngModel)]="nome" name="nome" matInput placeholder="Identificação de Usuário" />
-            <mat-icon matSuffix class="data-hint-icon">info</mat-icon>
+            <input
+              matInput
+              type="text"
+              name="nome"
+              placeholder="Identificação de Usuário"
+              [(ngModel)]="nome" />
+            <mat-icon matSuffix class="hint-icn">info</mat-icon>
           </mat-form-field>
 
-          <mat-form-field appearance="outline" class="input-field-container">
-            <mat-icon matPrefix class="visible">lock</mat-icon>
+          <mat-form-field appearance="outline" class="fld-wrap">
+            <mat-icon matPrefix class="padlock">lock</mat-icon>
 
-            <input [type]="hide() ? 'password' : 'text'" [(ngModel)]="senha" name="senha" matInput
-              placeholder="Código de Segurança" />
+            <input
+              matInput
+              name="senha"
+              [type]="hide() ? 'password' : 'text'"
+              placeholder="Código de Segurança"
+              [(ngModel)]="senha" />
 
-            <button class="security-toggle" type="button" mat-icon-button matSuffix (click)="clickEvent($event)"
-              [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide()">
-              <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <button
+              class="sec-toggle"
+              type="button"
+              mat-icon-button
+              matSuffix
+              (click)="clickEvent($event)"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide()">
+              <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
             </button>
           </mat-form-field>
 
-          <div class="auth-options">
-            <mat-checkbox class="options-checkbox"></mat-checkbox>
+          <div class="auth-opt">
+            <mat-checkbox class="cbx-opt"></mat-checkbox>
             <span>Manter sessão ativa</span>
           </div>
 
-          <button mat-flat-button class="access-button">Iniciar Sessão</button>
+          <button mat-flat-button class="acc-btn">
+            Iniciar Sessão
+          </button>
+
         </form>
       </div>
-      <p class="legal-notice">Sistema Protegido © Ford Motor Company</p>
+
+      <p class="legal-msg">Sistema Protegido © Ford Motor Company</p>
+
     </div>
   </div>
 </div>

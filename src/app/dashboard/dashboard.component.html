@@ -1,18 +1,18 @@
 <app-menu></app-menu>
 
-<main class="dashboard-page">
-  <h2 class="page-title">Dashboard Ford</h2>
+<main class="dash-pg">
+  <h2 class="pg-ttl">Dashboard Ford</h2>
 
-  <div class="content-wrapper">
-    <div class="left-section">
-      <div class="card">
-        <div class="card-header">Veículo</div>
-        <div class="card-body">
+  <div class="cnt-wrap">
+    <div class="sec-l">
+      <div class="crd">
+        <div class="crd-hd">Veículo</div>
+        <div class="crd-bd">
           <form [formGroup]="selectCarForm">
-            <select class="form-select" formControlName="carId">
+            <select class="slc" formControlName="carId">
               <option value="" disabled selected>Selecione...</option>
               @for (vehicle of vehicles; track vehicle.id) {
-              <option [value]="vehicle.id">{{ vehicle.vehicle }}</option>
+                <option [value]="vehicle.id">{{ vehicle.vehicle }}</option>
               }
             </select>
           </form>
@@ -20,31 +20,37 @@
       </div>
 
       @if (selectedVehicle) {
-        <img [src]="selectedVehicle.img" [alt]="selectedVehicle.vehicle" class="vehicle-image"/>
+        <img 
+          [src]="selectedVehicle.img" 
+          [alt]="selectedVehicle.vehicle" 
+          class="veh-img"
+        />
       }
     </div>
-    
+
     @if (selectedVehicle) {
-      <div class="right-section">
-        <div class="card animated-card">
-          <div class="card-header">Total de Vendas</div>
-          <div class="card-body">
-            <h5 class="card-title">{{ selectedVehicle.volumetotal | number }}</h5>
-            <p class="card-text">Unid.</p>
+      <div class="sec-r">
+        <div class="crd anim">
+          <div class="crd-hd">Total de Vendas</div>
+          <div class="crd-bd">
+            <h5 class="crd-ttl">{{ selectedVehicle.volumetotal | number }}</h5>
+            <p class="crd-txt">Unid.</p>
           </div>
         </div>
-        <div class="card animated-card">
-          <div class="card-header">Veículos Conectados</div>
-          <div class="card-body">
-            <h5 class="card-title">{{ selectedVehicle.connected | number }}</h5>
-            <p class="card-text">Unid.</p>
+
+        <div class="crd anim">
+          <div class="crd-hd">Veículos Conectados</div>
+          <div class="crd-bd">
+            <h5 class="crd-ttl">{{ selectedVehicle.connected | number }}</h5>
+            <p class="crd-txt">Unid.</p>
           </div>
         </div>
-        <div class="card animated-card">
-          <div class="card-header">Software Atualizado</div>
-          <div class="card-body">
-            <h5 class="card-title">{{ selectedVehicle.softwareUpdates | number }}</h5>
-            <p class="card-text">Unid.</p>
+
+        <div class="crd anim">
+          <div class="crd-hd">Software Atualizado</div>
+          <div class="crd-bd">
+            <h5 class="crd-ttl">{{ selectedVehicle.softwareUpdates | number }}</h5>
+            <p class="crd-txt">Unid.</p>
           </div>
         </div>
       </div>
@@ -52,7 +58,7 @@
   </div>
 </main>
 
-<footer class="vin-table-footer">
+<footer class="vin-ft">
   <table>
     <thead>
       <tr>
@@ -64,13 +70,20 @@
         <th>Long</th>
       </tr>
     </thead>
+
     <tbody>
       <tr>
-        <td class="vin-input-cell">
+        <td class="vin-cell">
           <form [formGroup]="vinForm">
-            <input class="form-control" type="text" formControlName="vin" placeholder="Digite o código VIN..."/>
+            <input 
+              type="text"
+              class="inpt"
+              placeholder="Digite o código VIN..."
+              formControlName="vin"
+            />
           </form>
         </td>
+
         <td>{{ (carVin?.odometro | number) || '-' }} km</td>
         <td>{{ carVin?.nivelCombustivel || '-' }} %</td>
         <td>{{ carVin?.status || '-' }}</td>

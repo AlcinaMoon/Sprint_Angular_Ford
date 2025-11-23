@@ -8,20 +8,26 @@ import { CarroVin } from '../utils/carroVinInterface';
 import { Subscription } from 'rxjs';
 import { MenuComponent } from "../menu/menu.component";
 
+
 @Component({
   selector: 'app-dashboard',
-  imports: [ReactiveFormsModule, CommonModule, MenuComponent],
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    CommonModule,
+    MenuComponent
+  ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
   vehicles: Veiculo[] = [];
   selectedVehicle!: Veiculo;
   vehicleData!: VehicleData;
 
   carVin!: CarroVin;
   reqVin!: Subscription;
-
 
   selectCarForm = new FormGroup({
     carId: new FormControl(''),
@@ -42,7 +48,6 @@ export class DashboardComponent implements OnInit {
     this.selectCarForm.controls.carId.valueChanges.subscribe((id) => {
       this.selectedVehicle = this.vehicles.find(v => v.id == Number(id))!;
     });
-
 
     this.vinForm.controls.vin.valueChanges.subscribe((value) => {
       if (value) {
